@@ -31,6 +31,12 @@
   background-origin: content-box;
 }
 
+@media (max-width: 768px) {
+  .heroMainContainer {
+    background-image: none;
+  }
+}
+
 .heroContent {
   width: 100%;
   height: 100vh;
@@ -68,6 +74,13 @@
   position: absolute;
   inset: 0;
   opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .heroTextLogo {
+    background-position: 50% 30%;
+    background-size: 22vh;
+  }
 }
 
 .heroText {

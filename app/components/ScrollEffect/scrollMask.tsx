@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useLayoutEffect } from 'react'
+import { useRef, useLayoutEffect, useState, useEffect } from 'react'
 import styles from './scrollMask.module.css'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -16,6 +16,14 @@ const ScrollMask = () => {
   const textLogoRef = useRef<HTMLDivElement>(null)
   const heroTextRef = useRef<HTMLHeadingElement>(null)
   const hero2ContainerRef = useRef<HTMLDivElement>(null)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768)
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -46,8 +54,19 @@ const ScrollMask = () => {
       // Fade out hero content
       tl.to(heroContentRef.current, { opacity: 0, duration: 0.9 }, "<")
 
-      // Shrink background logo size
-      tl.to(heroMainRef.current, { backgroundSize: "35vh", duration: 1.5 }, "<+=0.2")
+      // Shrink background logo size - only on desktop
+      if (!isMobile) {
+        tl.to(heroMainRef.current, { backgroundSize: "35vh", duration: 1.5 }, "<+=0.2")
+      }
+
+      // On mobile, fade in the textLogo earlier and smoother
+      if (isMobile) {
+        tl.fromTo(textLogoRef.current,
+          { opacity: 0 },
+          { opacity: 1, duration: 1.5 },
+          "<+=0.5"
+        )
+      }
 
       // Animate the "Coming" text gradient
       tl.fromTo(heroTextRef.current,
@@ -70,22 +89,24 @@ const ScrollMask = () => {
           )`,
           duration: 3,
         },
-        "<1.2"
+        isMobile ? "<0.5" : "<1.2"
       )
 
-      // Fade in the logo overlay
-      tl.fromTo(textLogoRef.current,
-        {
-          opacity: 0,
-          maskImage: `radial-gradient(circle at 50% 145.835%, rgb(0, 0, 0) 36.11%, rgba(0, 0, 0, 0) 68.055%)`,
-        },
-        {
-          opacity: 1,
-          maskImage: `radial-gradient(circle at 50% 105.594%, rgb(0, 0, 0) 62.9372%, rgba(0, 0, 0, 0) 81.4686%)`,
-          duration: 3,
-        },
-        "<0.2"
-      )
+      // Fade in the logo overlay - desktop only (mobile already handled above)
+      if (!isMobile) {
+        tl.fromTo(textLogoRef.current,
+          {
+            opacity: 0,
+            maskImage: `radial-gradient(circle at 50% 145.835%, rgb(0, 0, 0) 36.11%, rgba(0, 0, 0, 0) 68.055%)`,
+          },
+          {
+            opacity: 1,
+            maskImage: `radial-gradient(circle at 50% 105.594%, rgb(0, 0, 0) 62.9372%, rgba(0, 0, 0, 0) 81.4686%)`,
+            duration: 3,
+          },
+          "<0.2"
+        )
+      }
 
       // Hide main container
       tl.set(heroMainRef.current, { opacity: 0 })
@@ -140,7 +161,7 @@ const ScrollMask = () => {
     }, containerRef)
 
     return () => ctx.revert()
-  }, [])
+  }, [isMobile])
 
   return (
     <div ref={containerRef} className={styles.container}>
