@@ -204,7 +204,7 @@ export default function Hero() {
         </div>
 
         {/* Mobile Timer - Below Content */}
-        <div className="lg:hidden absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 w-full px-4 sm:px-6">
+        <div className="lg:hidden absolute bottom-8 sm:bottom-16 left-1/2 -translate-x-1/2 w-full px-4 sm:px-6">
           <div className="flex justify-center gap-1.5 sm:gap-2">
             {[
               { label: "Days", value: countdown.days },
