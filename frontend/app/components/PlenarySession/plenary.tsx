@@ -104,6 +104,7 @@ const plenarySessionsData: PlenarySession[] = [
         name: "Professor Suresh Sampath",
         title: "Head of Gas Turbine Systems Engineering & Operations, Director-CPD Propulsion Engineering",
         organization: "Cranfield University, United Kingdom",
+        photo: "/Plenary/SureshSampath.jpeg",
       },
     ],
     awaitingConfirmation: false,
@@ -168,7 +169,7 @@ const plenarySessionsData: PlenarySession[] = [
         name: "Dr. Krishnaswami (Hari) Srihari",
         title: "Dean Emeritus, SUNY Distinguished Professor",
         organization: "Thomas J. Watson College of Engineering, Binghamton University, New York",
-        photo: "/Plenary/srihari.jpg",
+        photo: "/Plenary/srihari.png",
       },
     ],
     awaitingConfirmation: false,
@@ -277,7 +278,7 @@ export default function PlenarySessions({
             >
               <div className="relative w-full h-full bg-linear-to-br from-titanium-charcoal via-titanium-rich to-titanium-black border border-titanium-silver/20 backdrop-blur-xl p-3 sm:p-4 md:p-6 flex flex-col">
                 {isMobile ? (
-                  <div className="relative flex flex-col w-full p-2 gap-2">
+                  <div className="relative flex flex-col w-full p-2 gap-3">
                     <div className="flex items-start justify-between gap-3">
                       <h3 className="text-sm sm:text-base font-bold text-titanium-light leading-snug flex-1 pr-2">
                         {session.sessionTitle}
@@ -292,37 +293,53 @@ export default function PlenarySessions({
                         </span>
                       )}
                     </div>
-                    <p className="text-[11px] sm:text-xs text-titanium-metallic/70 line-clamp-2 leading-relaxed">
-                      {session.topic.description}
-                    </p>
-                    <div className="flex items-center justify-between mt-1 pt-2 border-t border-titanium-silver/10">
-                      <div className="flex items-center gap-2">
-                        <button
-                          onClick={() => setSelectedSession(session)}
-                          className="px-2.5 py-1 bg-titanium-silver/10 border border-titanium-silver/30 rounded text-titanium-silver hover:bg-titanium-silver/20 transition-colors text-[10px] sm:text-xs"
-                        >
-                          Know More
-                        </button>
-                        {session.awaitingConfirmation ? (
-                          <span className={cn(styles.revealingBadge, styles.revealingBadgeMobile)}>Revealing Soon</span>
-                        ) : (
-                          <span className={cn(styles.speakersBadge, styles.revealingBadgeMobile)}>
-                            {session.speakers.length} Speaker{session.speakers.length !== 1 ? 's' : ''}
-                          </span>
-                        )}
+
+                    {/* Speaker cards for mobile */}
+                    {session.awaitingConfirmation ? (
+                      <div className="flex items-center justify-center py-4">
+                        <span className={cn(styles.revealingBadge)}>Revealing Soon</span>
                       </div>
-                      <div className="flex -space-x-1.5">
-                        {session.speakers.slice(0, 3).map((speaker, idx) => (
-                          <div key={idx} className={cn(styles.miniAvatar, styles.miniAvatarMobile)}>
-                            <span className={cn(styles.miniInitials, styles.miniInitialsMobile)}>{getInitials(speaker.name)}</span>
+                    ) : (
+                      <div className={cn(
+                        "grid gap-2",
+                        session.speakers.length === 1 ? "grid-cols-1" : "grid-cols-2"
+                      )}>
+                        {session.speakers.slice(0, 4).map((speaker, idx) => (
+                          <div key={idx} className={cn(
+                            styles.speakerCardMobile,
+                            session.speakers.length === 1 && styles.speakerCardMobileSingle
+                          )}>
+                            <div className={cn(
+                              styles.speakerAvatarMobile,
+                              session.speakers.length === 1 && styles.speakerAvatarMobileSingle
+                            )}>
+                              {speaker.photo ? (
+                                <img src={speaker.photo} alt={speaker.name} className={styles.speakerPhoto} />
+                              ) : (
+                                <span className={styles.speakerInitialsMobile}>{getInitials(speaker.name)}</span>
+                              )}
+                            </div>
+                            <div className={styles.speakerInfoMobile}>
+                              <h4 className={styles.speakerNameMobile}>{speaker.name}</h4>
+                              <p className={styles.speakerOrgMobile}>{speaker.organization}</p>
+                            </div>
                           </div>
                         ))}
-                        {session.speakers.length > 3 && (
-                          <div className={cn(styles.miniAvatar, styles.miniAvatarMore, styles.miniAvatarMobile)}>
-                            <span className={cn(styles.miniInitials, styles.miniInitialsMobile)}>+{session.speakers.length - 3}</span>
-                          </div>
-                        )}
                       </div>
+                    )}
+
+                    <div className="flex items-center justify-between pt-2 border-t border-titanium-silver/10">
+                      <button
+                        onClick={() => setSelectedSession(session)}
+                        className="px-2.5 py-1 bg-titanium-silver/10 border border-titanium-silver/30 rounded text-titanium-silver hover:bg-titanium-silver/20 transition-colors text-[10px] sm:text-xs"
+                      >
+                        Know More
+                      </button>
+                      {!session.awaitingConfirmation && session.speakers.length > 4 && (
+                        <span className={cn(styles.speakersBadge, styles.revealingBadgeMobile)}>
+                          +{session.speakers.length - 4} more
+                        </span>
+                      )}
                     </div>
                   </div>
                 ) : (
