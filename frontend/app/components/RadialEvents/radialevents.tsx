@@ -420,7 +420,7 @@ export default function RadialEvents() {
 
 					<div className="absolute -bottom-12 md:-bottom-36 left-1/2 -translate-x-1/2 z-[2000] pointer-events-auto scale-90 md:scale-100">
 						<Link
-							href="/events"
+							href="/programs/events"
 							className="flex items-center gap-2 px-6 py-2.5 md:px-8 md:py-3 bg-white text-black rounded-full font-bold text-xs md:text-sm hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] whitespace-nowrap"
 							style={{ cursor: 'pointer' }}
 						>

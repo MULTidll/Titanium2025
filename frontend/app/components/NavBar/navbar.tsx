@@ -102,7 +102,7 @@ export default function Navbar() {
  
             <div className="hidden lg:block">
               <a
-                href="#register"
+                href="/programs/register"
                 className="nav-item btn-primary px-6 py-2.5 rounded-full text-sm font-semibold inline-block"
               >
                 Register Now
@@ -142,7 +142,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#register"
+            href="/programs/register"
             className="btn-primary px-8 py-3 rounded-full text-lg font-semibold mt-4"
           >
             Register Now

@@ -1,7 +1,7 @@
 'use client'
-import IsometricRoom from "../components/IsometricRoom/IsometricRoom";
-import CountdownTimer from "../components/CountdownTimer/CountdownTimer";
-import CurvedLoop from '../../components/CurvedLoop';
+import IsometricRoom from "../../components/IsometricRoom/IsometricRoom";
+import CountdownTimer from "../../components/CountdownTimer/CountdownTimer";
+import CurvedLoop from '../../../components/CurvedLoop';
 
 const page = () => {
   const targetDate = new Date(2026, 0, 10, 0, 0, 0); // (0 = January)

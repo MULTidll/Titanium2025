@@ -154,7 +154,7 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
             <a
-              href="#register"
+              href="/programs/register"
               className="hero-cta btn-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base font-semibold inline-flex items-center justify-center gap-2 group"
             >
               Register Now
