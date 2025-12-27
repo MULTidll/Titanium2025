@@ -237,7 +237,7 @@ const ExperienceZone = () => {
                         <div className={styles.cardsGrid}>
                             {vrArContent.map((item, i) => (
                                 <div key={i} className={`${styles.card} vr-card`}>
-                                    <div className={styles.constructionText}>Under Construction</div>
+                                    <div className={styles.constructionText}>Coming Soon </div>
                                 </div>
                             ))}
                         </div>
@@ -247,7 +247,7 @@ const ExperienceZone = () => {
                         <div className={styles.cardsGrid}>
                             {gamingContent.map((item, i) => (
                                 <div key={i} className={`${styles.card} gaming-card`}>
-                                    <div className={styles.constructionText}>Under Construction</div>
+                                    <div className={styles.constructionText}>Coming Soon </div>
                                 </div>
                             ))}
                         </div>
@@ -257,7 +257,7 @@ const ExperienceZone = () => {
                         <div className={styles.cardsGrid}>
                             {arcadeContent.map((item, i) => (
                                 <div key={i} className={`${styles.card} arcade-card`}>
-                                    <div className={styles.constructionText}>Under Construction</div>
+                                    <div className={styles.constructionText}>Coming Soon </div>
                                 </div>
                             ))}
                         </div>

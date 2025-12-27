@@ -12,7 +12,7 @@ const footerLinks = {
     { name: "Sponsors", href: "#sponsors" },
   ],
   "Resources": [
-    { name: "FAQs", href: "#" },
+    { name: "FAQs", href: "/faq" },
     { name: "Travel Info", href: "#" },
     { name: "Accommodation", href: "#" },
     { name: "Visa Support", href: "#" },
@@ -72,7 +72,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
- 
+
           <div className="lg:col-span-2">
             <div className="mb-6">
               <span className="text-3xl font-bold tracking-tight text-titanium-gradient">
@@ -81,7 +81,7 @@ export default function Footer() {
               <span className="text-sm font-mono text-titanium-metallic ml-2">2026</span>
             </div>
             <p className="text-titanium-metallic mb-6 max-w-sm leading-relaxed">
-              The world&apos;s premier technology symposium bringing together innovators, 
+              The world&apos;s premier technology symposium bringing together innovators,
               developers, and industry leaders from across the globe.
             </p>
 
@@ -100,7 +100,7 @@ export default function Footer() {
               </div>
             </div>
 
-    
+
             <div className="flex gap-3 mt-8">
               {socialLinks.map((social) => (
                 <a
@@ -136,7 +136,7 @@ export default function Footer() {
         </div>
       </div>
 
- 
+
       <div className="border-t border-titanium-silver/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
