@@ -10,7 +10,7 @@ const navLinks = [
   { name: "Events", href: "#events" },
   { name: "Workshops", href: "#workshops" },
   { name: "Schedule", href: "#schedule" },
-  // { name: "Sponsors", href: "#sponsors" },
+  { name: "Sponsors", href: "#sponsors" },
 ];
 
 export default function Navbar() {
@@ -121,14 +121,9 @@ export default function Navbar() {
       </nav>
 
       <div
-        className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-3xl transition-all duration-500 lg:hidden ${
+        className={`fixed inset-0 z-40 bg-titanium-black/98 backdrop-blur-xl transition-all duration-500 lg:hidden ${
           isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
-        style={{
-          background: isMobileMenuOpen 
-            ? "linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(20,20,20,0.8) 100%)"
-            : undefined
-        }}
       >
         <div className="flex flex-col items-center justify-center h-full gap-8">
           {navLinks.map((link, index) => (
