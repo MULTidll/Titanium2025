@@ -27,7 +27,7 @@ export default function Home() {
       <ExperienceZone />
       <Workshops />
       <Schedule />
-      <Sponsors/>
+      {/* <Sponsors /> */}
       <Footer />
     </SmoothScroll>
   );
