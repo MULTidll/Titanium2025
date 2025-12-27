@@ -73,19 +73,19 @@ const ScrollMask = () => {
         {
           backgroundImage: `radial-gradient(
             circle at 50% 200vh,
-            rgba(197, 197, 196, 0) 0,
-            rgba(138, 138, 138, 0.5) 90vh,
-            rgba(138, 138, 138, 0.8) 120vh,
-            rgba(0, 0, 0, 0) 150vh
+            rgba(255, 212, 129, 0) 0,
+            rgba(238, 70, 106, 0.5) 90vh,
+            rgba(126, 35, 103, 0.8) 120vh,
+            rgba(32, 31, 66, 0) 150vh
           )`,
         },
         {
           backgroundImage: `radial-gradient(
-            circle at 50% 3.9575vh, 
-            rgb(255, 255, 255) 0vh,
-            rgb(197, 197, 196) 50.011vh,
-            rgb(138, 138, 138) 90.0183vh,
-            rgba(0, 0, 0, 0) 140.599vh
+            circle at 50% 56.9247vh, 
+            rgb(255, 212, 129) 0vh,
+            rgb(238, 70, 106) 50vh,
+            rgb(126, 35, 103) 90vh,
+            rgba(32, 31, 66, 0) 125.854vh
           )`,
           duration: 3,
         },
@@ -177,11 +177,13 @@ const ScrollMask = () => {
 
         {/* Text and Logo overlay */}
         <div className={styles.heroTextLogoContainer}>
-          <div ref={textLogoRef} className={styles.heroTextLogo}></div>
+          {/* <div ref={textLogoRef} className={styles.heroTextLogo}></div> */}
           <div>
             <h3 ref={heroTextRef} className={styles.heroText}>
-              Coming<br />
-              FEB 12, 13, 14<br />
+              Coming
+              <br />
+              FEBRUARY 12
+              <br />
               2026
             </h3>
           </div>
@@ -192,7 +194,7 @@ const ScrollMask = () => {
       <div ref={hero2ContainerRef} className={styles.hero2Container}>
         <h3>&ldquo;It isn&apos;t just a symposium&rdquo;</h3>
         <p>
-          It&apos;s a <span className={styles.highlight}>Revolution</span> — where innovation meets inspiration, 
+          It&apos;s a <span className={styles.highlight}>Revolution</span> — where innovation meets inspiration,
           and the brightest minds come together to shape the future of technology.
         </p>
       </div>
