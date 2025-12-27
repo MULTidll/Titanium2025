@@ -194,7 +194,7 @@ export default function Workshops() {
               Expert-led sessions designed to transform your skills
             </p>
             <a
-              href="#"
+              href="/events"
               className="btn-secondary px-6 py-3 rounded-full text-sm font-semibold inline-flex items-center gap-2 w-fit mt-6 mx-auto"
             >
               View All Workshops
